@@ -7,7 +7,6 @@ import (
 
 	hexutil "github.com/SergeevDmitry/eth2-balance-service/pkg/utils"
 	"github.com/ethereum/go-ethereum/common"
-	"github.com/stratisproject/prysm-stratis/consensus-types/primitives"
 )
 
 // Request types
@@ -30,11 +29,11 @@ type SyncStatusResponse struct {
 }
 type Eth2ConfigResponse struct {
 	Data struct {
-		SecondsPerSlot               uinteger         `json:"SECONDS_PER_SLOT"`
-		SlotsPerEpoch                uinteger         `json:"SLOTS_PER_EPOCH"`
-		EpochsPerSyncCommitteePeriod uinteger         `json:"EPOCHS_PER_SYNC_COMMITTEE_PERIOD"`
-		CapellaForkVersion           []byte           `json:"CAPELLA_FORK_VERSION"`
-		CapellaForkEpoch             primitives.Epoch `json:"CAPELLA_FORK_EPOCH"`
+		SecondsPerSlot               uinteger `json:"SECONDS_PER_SLOT"`
+		SlotsPerEpoch                uinteger `json:"SLOTS_PER_EPOCH"`
+		EpochsPerSyncCommitteePeriod uinteger `json:"EPOCHS_PER_SYNC_COMMITTEE_PERIOD"`
+		CapellaForkVersion           []byte   `json:"CAPELLA_FORK_VERSION"`
+		CapellaForkEpoch             uinteger `json:"CAPELLA_FORK_EPOCH"`
 	} `json:"data"`
 }
 type Eth2DepositContractResponse struct {
