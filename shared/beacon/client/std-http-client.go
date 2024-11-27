@@ -13,6 +13,7 @@ import (
 
 	"github.com/SergeevDmitry/eth2-balance-service/shared/types"
 	"github.com/ethereum/go-ethereum/common"
+	"github.com/ethereum/go-ethereum/common/hexutil"
 	eth2types "github.com/wealdtech/go-eth2-types/v2"
 	"golang.org/x/sync/errgroup"
 
@@ -135,7 +136,7 @@ func (c *StandardHttpClient) GetEth2Config() (beacon.Eth2Config, error) {
 		SlotsPerEpoch:                uint64(eth2Config.Data.SlotsPerEpoch),
 		SecondsPerEpoch:              uint64(eth2Config.Data.SecondsPerSlot * eth2Config.Data.SlotsPerEpoch),
 		EpochsPerSyncCommitteePeriod: uint64(eth2Config.Data.EpochsPerSyncCommitteePeriod),
-		CapellaForkVersion:           eth2Config.Data.CapellaForkVersion,
+		CapellaForkVersion:           hexutil.MustDecode(eth2Config.Data.CapellaForkVersion),
 		CapellaForkEpoch:             uint64(eth2Config.Data.CapellaForkEpoch),
 	}, nil
 
